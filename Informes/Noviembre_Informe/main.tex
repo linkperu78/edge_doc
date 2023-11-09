@@ -1,0 +1,212 @@
+
+\documentclass{article}
+\usepackage[table]{xcolor}  % Required for rowcolor
+\usepackage{siunitx}  % Added siunitx package for number formatting
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{tocloft}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{blindtext}
+\usepackage{ragged2e}
+\usepackage[margin=1in]{geometry}
+
+% Customizing Table of Contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\baselinestretch}{1.5} 
+
+% Custom command for including figures with captions
+\newcommand{\vputfigure}[3]{%
+  \begin{figure}[H]
+    \centering
+    \includegraphics[height=4cm]{#1}
+    \captionsetup{font=scriptsize}
+    \caption{#2}
+    \label{#3}
+  \end{figure}%
+}
+
+\newcommand{\hputfigure}[3]{%
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=4cm]{#1}
+    \captionsetup{font=scriptsize}
+    \caption{#2}
+    \label{#3}
+  \end{figure}%
+}
+
+
+
+\justifying
+
+\begin{document}
+\title{Reporte subida a Aesa Noviembre}
+\author{Diego Quispe Cangalaya}
+\date{\today}
+
+\maketitle
+
+\tableofcontents
+\newpage 
+
+\listoffigures
+\newpage 
+
+
+\section{Resumen}
+El objetivo de esta subida fue demostrar que el equipo Edge AIoT Box puede recabar informacion de minimo 15 dias.
+Por lo que se debio intervenir la maquinaria R1600H que contiene el mencionado equipo instalado.
+\vspace{5mm}
+\newline En esta subida se realizaron las siguientes operaciones:
+\begin{enumerate}
+    \item Coordinacion el ingreso a la mina MINSUR
+    \item Renovacion de las capacitacion Anexo 4 y Anexo 5
+    \item Obtencion del permiso para intervenir R1600H
+    \item Se registro el equipamento traido para intervencion
+    \item Se realizaron los documentos requeridos para intervercion
+    \item Se reprogramaron los nodos
+    \item Se intervino la maquinaria R1600H y se remmplazo el Edge
+    \item Se examino la data recoletada por el anterior R1600H
+    \item Se enviaron muestras de los datos a la web de CST Peru
+    \item Registramos nuestra salida de equipaje
+    \item Se realizo una charla del avance a AESA / MINSUR
+    \item Se superviso el envio de datos mediante un operador
+\end{enumerate}
+
+\newpage 
+
+
+\section{Capacitaciones e Ingreso a la U.M. San Rafael}
+Se tomo una movilidad particular para ir de la ciudad de Juliaca hacia Antauta el dia viernes 5 de Noviembre. 
+Nos instalamos en el hotel y realizamos la guia de entrada para el ingreso de herramientas.
+\vspace{5mm}
+\newline
+Al dia siguiente se realizo la induccion para renovar el anexo 4 y 5 para trabajadores temporales lo cual todo el dia.
+\vspace{5mm}
+\newline
+El dia Domingo 5 de Noviembre, se nos informa que el equipo se encontrara disponible para su intervencion en la tarde.
+\newpage 
+
+
+\section{Intervecion del equipo R1600H}
+Una vez completados los documentos formales para intervenir el equipo R1600H, se logra establecer conexion con el Edge.
+El equipo se encontraba desconectado y en un 
+\vspace{5mm}
+\newline
+Se extrae la base de datos del equipo y nos retiramos de la maquinaria que todavia seguia en labores de mantenimiento.
+Se analizo la base de datos:
+\begin{enumerate}
+    \renewcommand{\labelenumi}{(\roman{enumi})}
+    \item Se encontro aproximadamente 3 millones de datos en la base de datos
+    \vputfigure{pictures/Edge_sql_aesa.jpg}{Datos de "salud" en la base de datos}{fig:edge_sql_data}
+
+    \item Graficando algunos parametros, se encontro la fechas en que se registraron estos datos: 14 Setiembre hasta 27 de Octubre
+    \vputfigure{pictures/Grafica_RPM_Fecha.jpg}{Grafica RPM con respecto a las fechas}{fig:rpm_graph}
+    \vputfigure{pictures/Graficas_30_dias.jpg}{Graficas de todos los parametros}{fig:all_graphs}
+    
+    \item Se valida la existencia de data de mas de 30 dias, se sube a reparto de guardia para comenzar a enviar la data
+    \hputfigure{pictures/Nodo_Portable_Banco_de_carga.jpg}{Nodos portables en espera para enviar informacion}{fig:banco_de_carga}
+
+    \item Se valido la llegada de informacion al servidor de CST Peru
+    \vputfigure{pictures/web_cst_peru.jpg}{Equipo AE-SC-03 en la primera semana de data}{fig:cst_web}
+\end{enumerate}
+
+\newpage 
+
+
+\section{Estado del equipo previo}
+A continuacion se mostrara el estado del Edge AioT Box instalado previamente en la maquinaria R1600H, asi como el estado de los tres nodos portables
+instalados en el banco de carga:
+\subsection{Edge AioT Box}
+  \begin{enumerate}
+    \renewcommand{\labelenumi}{(\roman{enumi})}
+    \item El equipo Edge AioT Box previamente instalado tiene el cable de conexion salido
+    \hputfigure{pictures/Edge_R1600H_cable_conduit_error.jpg}
+                {El cable conduit se encuentra fuera de posicion, dejando vulnerable al equipo}
+                {fig:edge_fail_conduit}
+    
+    \item Se extrajo el equipo de la maquinaria, y se noto que el soporte metalico sufrio un doblez
+    \hputfigure{pictures/Edge_R1600H_asiento_alto.jpg}
+                {Asiento del conductor bajo presion}
+                {fig:asiento_r1600h}
+    \hputfigure{pictures/Edge_R1600H_Placa_deformada.jpg}
+                {Deformacion en la placa metalica}
+                {fig:edge_soporte_steel}
+
+    \item Se realizo una prueba en la cabina, se observo que hay una parte del asiento que golpea al equipo al tener un operario sentado
+    \hputfigure{pictures/Edge_R1600H_choque_con_asiento.jpg}
+                {El equipo Edge se golpea con frecuencia con un elemento metalico}
+                {fig:edge_hit_steel}
+
+    \item El equipo se abrio para investigarlo internamente, el equipo Edg no muestra indicios de daños. Solamente se observo 2 tornillos
+    sueltos. 
+    \vputfigure{pictures/Edge_R1600H_estado_inicial_interior.jpg}
+                {Interior del equipo Edge, no se encuentra daños}
+                {fig:inside_edge}
+    \vputfigure{pictures/Edge_R1600H_tornillos_salidos.jpg}
+                {Tornillos sueltos encontrados}
+                {fig:bolt_2_edge}
+  \end{enumerate}
+
+\subsection{Nodo Portable}
+  \begin{enumerate}
+    \renewcommand{\labelenumi}{(\roman{enumi})}
+    \item Se abrieron los tres nodos portables, y en dos de ellos se encotraron los botones para programacion 
+    dañado y la entrada del cable de bateria inclinado hacia el ESP32
+    \hputfigure{pictures/Nodo_Portable_fallos_por_presion.jpg}
+                {La placa del Nodo Portable y los daños presentes}
+                {fig:nodo_damaged}
+
+    \item Se dejaron dos nodos portables instalados con el codigo actualizado, y se realizo una prueba de envio 
+    al servidor de CST Peru.
+    \vputfigure{pictures/Nodo_Portable_Pruena_6_Noviembre_300_datos.jpg}
+                {Los datos llegaron a la web de CST Peru}
+                {fig:nodo_test_cst}
+  \end{enumerate}
+
+\newpage 
+\section{Resumen de gastos}
+
+\begin{table}[htb]
+  \centering
+  \begin{tabular}{|c|p{4cm}|S[table-format=3.2]|}
+    
+    \hline
+    \rowcolor{black!20} % Background color for the first row
+    Fecha & \multicolumn{1}{c|}{Motivo} & {Gasto (\text{Soles s/})} \\
+    
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    02/11/23 & Desayuno & 21\\
+    \hline
+    \rowcolor{blue!20}
+    & Total & \num{123.45} \\
+    \hline
+  
+  \end{tabular}
+  \caption{Gastos realizados durante la subida a Mina}
+  \label{tab:schedule_expenses}
+\end{table}
+
+\end{document}
